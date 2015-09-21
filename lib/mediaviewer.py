@@ -22,15 +22,15 @@ class MediaIterator:
 
 
 class MediaWindow(xbmcgui.WindowXMLDialog):
-    def __new__(cls):
+    def __new__(cls, *args, **kwargs):
         return super(MediaWindow, cls).__new__(cls, "ViewerWindow.xml", xbmcaddon.Addon(id='script.module.mediaviewer').getAddonInfo('path'))
 
-    def __init__(self):
+    def __init__(self, iterator):
+        self.iterator = iterator
         self.img = None
         # Stops the menus showing through whilst images are loading
         self.blackOverlay = None
         self.playButton = None
-        self.iterator = None
         self.player = MediaWindowPlayer(self)
         self.isVideoPlaying = False
 
@@ -40,20 +40,19 @@ class MediaWindow(xbmcgui.WindowXMLDialog):
         self.playButton = self.getControl(3)
         self.setContent()
 
-    def setMediaIterator(self, iterator):
-        self.iterator = iterator
-
     def onAction(self, action):
 
-        if action == xbmcgui.ACTION_MOVE_LEFT:
-            self.iterator.back()
-            self.setContent()
-        elif action == xbmcgui.ACTION_MOVE_RIGHT:
-            self.iterator.forward()
-            self.setContent()
-        elif action == xbmcgui.ACTION_SELECT_ITEM or action == xbmcgui.ACTION_ENTER or action == xbmcgui.ACTION_PLAY:
-            self.playVideo()
-        elif action == xbmcgui.ACTION_STOP \
+        if not self.isVideoPlaying:
+            if action == xbmcgui.ACTION_MOVE_LEFT:
+                self.iterator.back()
+                self.setContent()
+            elif action == xbmcgui.ACTION_MOVE_RIGHT:
+                self.iterator.forward()
+                self.setContent()
+            elif action == xbmcgui.ACTION_SELECT_ITEM or action == xbmcgui.ACTION_ENTER or action == xbmcgui.ACTION_PLAY:
+                self.playVideo()
+
+        if action == xbmcgui.ACTION_STOP \
                 or action == xbmcgui.ACTION_PREVIOUS_MENU or action == xbmcgui.ACTION_NAV_BACK:
             if self.isVideoPlaying:
                 self.stopVideo()
