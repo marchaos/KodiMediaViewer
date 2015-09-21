@@ -1,3 +1,5 @@
+# KodiMediaViewer
+
 The current built-in slideshow viewer in Kodi suffers from an issue where it attempts to read all images in a
 directory before presenting them. This can be extremely time consuming and can take more tahn 30 seconds in some cases, depending on the directory size. 
 
