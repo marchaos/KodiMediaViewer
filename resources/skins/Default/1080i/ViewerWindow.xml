@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<window>
+    <allowoverlay>yes</allowoverlay>
+    <controls>
+        <control type="group">
+            <animation effect="fade" time="150">WindowOpen</animation>
+            <animation effect="fade" time="150">WindowClose</animation>
+
+            <control type="image" id="1">
+                <fadetime>200</fadetime>
+                <aspectratio>stretch</aspectratio>
+                <texture>background.jpg</texture>
+            </control>
+
+            <control type="image" id="2">
+                <fadetime>200</fadetime>
+                <aspectratio>keep</aspectratio>
+            </control>
+
+            <control type="image" id="3">
+                <visible>true</visible>
+                <aspectratio>center</aspectratio>
+                <texture>play.png</texture>
+            </control>
+        </control>
+    </controls>
+</window>

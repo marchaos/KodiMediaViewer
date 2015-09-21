@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.module.mediaviewer" name="mediaviewer" version="0.0.1" provider-name="Marc McIntyre">
+    <requires>
+        <import addon="xbmc.python" version="2.20.0"/>
+    </requires>
+    <extension point="xbmc.python.module"
+               library="lib" />
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Library for viewing media (photos and videos) similar to the slideshow view</summary>
+        <description lang="en">This addon allows picture plugins to show images and videos,
+            whilst improving on the experience of the slideshow view as it does not attempt to load all images at once. This is particularly useful for web based
+            image site addons</description>
+        <platform>all</platform>
+    </extension>
+</addon>
