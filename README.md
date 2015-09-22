@@ -12,7 +12,7 @@ Futhermore it allows for slideshows to load images from additional pages so that
 Implement you own MediaIterator
 
 ```
-class FlickrMediaIterator(mediaviewer.MediaIterator):
+class MyPhotoIterator(mediaviewer.MediaIterator):
 
     def __init__(self, photoset, index):
       self.photoset = photoset
